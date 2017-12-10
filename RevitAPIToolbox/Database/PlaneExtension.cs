@@ -15,9 +15,9 @@ namespace Techyard.Revit.Database
         {
             var startPojection = plane.Project(line.GetEndPoint(0));
             var endProjection = plane.Project(line.GetEndPoint(1));
-            var projectionLine = line.IsBound
-                ? Line.CreateBound(startPojection, endProjection)
-                : Line.CreateUnbound(startPojection, endProjection - startPojection);
+            var projectionLine =
+                 Line.CreateBound(startPojection, endProjection);
+               
             return line.Intersect(projectionLine, out result);
         }
 
@@ -51,6 +51,16 @@ namespace Techyard.Revit.Database
                 var pointOnPlane = new XYZ(pointInPlaneCoordinate.X, pointInPlaneCoordinate.Y, 0);
                 return transform.OfPoint(pointOnPlane);
             }
+        }
+
+        public static Line Intersect(this Plane p1,Plane p2)
+        {
+            Line result = null;
+
+
+
+
+            return result;
         }
     }
 }

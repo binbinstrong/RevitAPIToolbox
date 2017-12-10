@@ -17,8 +17,7 @@ namespace Techyard.Revit.Implementations.CurveDivide
             return number.TraverseFrom(1, x => curve.Evaluate(1D / x, true)).ToList();
         }
 
-        private static IDictionary<Type, ICurveDivider> Dividers { get; } =
-            new ConcurrentDictionary<Type, ICurveDivider>();
+        private static IDictionary<Type, ICurveDivider> Dividers { get; } = new ConcurrentDictionary<Type, ICurveDivider>();
 
         internal static ICurveDivider GetDivider(Type curveType)
         {

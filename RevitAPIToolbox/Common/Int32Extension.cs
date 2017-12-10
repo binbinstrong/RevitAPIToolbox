@@ -22,5 +22,6 @@ namespace Techyard.Revit.Common
                 yield return handler?.Invoke(value++);
             }
         }
+         
     }
 }
