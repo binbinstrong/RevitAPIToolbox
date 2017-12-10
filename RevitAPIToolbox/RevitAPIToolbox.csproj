@@ -70,6 +70,9 @@
     <Compile Include="Common\ExternalEventManager.cs" />
     <Compile Include="Common\Int32Extension.cs" />
     <Compile Include="Common\ParameterizedExternalEventHandler.cs" />
+    <Compile Include="Database\DoubleExtension.cs" />
+    <Compile Include="Database\LineExtension.cs" />
+    <Compile Include="Database\PlaneHelper.cs" />
     <Compile Include="Database\CurveExtension.cs" />
     <Compile Include="Database\DocumentExtension.cs" />
     <Compile Include="Database\FamilyExtension.cs" />

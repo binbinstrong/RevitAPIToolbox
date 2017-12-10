@@ -13,10 +13,9 @@ namespace Techyard.Revit.Database
         /// <returns>Intersection status</returns>
         public static SetComparisonResult Intersect(this Plane plane, Line line, out IntersectionResultArray result)
         {
-            var startPojection = plane.Project(line.GetEndPoint(0));
-            var endProjection = plane.Project(line.GetEndPoint(1));
-            var projectionLine =
-                 Line.CreateBound(startPojection, endProjection);
+            var startPojection = plane.Project(line.GetEndPoint(0));                 //已经使用line.GetEndPoint() 没有必要再判断直线是否bound
+            var endProjection = plane.Project(line.GetEndPoint(1));                  //已经使用line.GetEndPoint() 没有必要再判断直线是否bound
+            var projectionLine =Line.CreateBound(startPojection, endProjection);     //已经使用line.GetEndPoint() 没有必要再判断直线是否bound
                
             return line.Intersect(projectionLine, out result);
         }
@@ -52,7 +51,13 @@ namespace Techyard.Revit.Database
                 return transform.OfPoint(pointOnPlane);
             }
         }
-
+        
+        /// <summary>
+        /// 求面与面的交线
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns></returns>
         public static Line Intersect(this Plane p1,Plane p2)
         {
             Line result = null;
